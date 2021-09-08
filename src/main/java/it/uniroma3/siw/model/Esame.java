@@ -41,4 +41,9 @@ public class Esame {
 	@OneToMany(mappedBy = "esame", cascade = CascadeType.ALL)
 	private List<Risultato> risultati;
 
+	public User getPaziente() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

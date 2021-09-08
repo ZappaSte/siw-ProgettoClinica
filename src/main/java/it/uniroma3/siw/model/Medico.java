@@ -28,4 +28,29 @@ public class Medico {
 	@OneToMany(mappedBy = "medico")
 	private List<Esame> esami;
 
+	
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
+	public String getSpecializzazione() {
+		return specializzazione;
+	}
+
+	public void setSpecializzazione(String specializzazione) {
+		this.specializzazione = specializzazione;
+	}
 }

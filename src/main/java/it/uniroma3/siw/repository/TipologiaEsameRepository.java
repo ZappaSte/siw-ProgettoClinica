@@ -8,6 +8,6 @@ import it.uniroma3.siw.model.TipologiaEsame;
 
 public interface TipologiaEsameRepository extends CrudRepository<TipologiaEsame, Long>{
 	
-	List<TipologiaEsame> findByNome(String nome);
+	public List<TipologiaEsame> findByNome(String nome);
 
 }

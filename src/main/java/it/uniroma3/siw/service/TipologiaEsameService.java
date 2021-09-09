@@ -17,17 +17,17 @@ public class TipologiaEsameService {
 	@Autowired
 	private TipologiaEsameRepository tipologiaEsameRepository;
 	
-	@Autowired
-	private CredentialsService credentialsService;
-	
 	@Transactional
-	public TipologiaEsame insert(TipologiaEsame tipologiaEsame) {
-		return tipologiaEsameRepository.save(tipologiaEsame);
+	public TipologiaEsame findById(Long id) {
+		Optional<TipologiaEsame> optional = tipologiaEsameRepository.findById(id);
+		if (optional.isPresent())
+			return optional.get();
+		else 
+			return null;
 	}
 	
-	@Transactional
-	public List<TipologiaEsame> allTipologiaEsame() {
-		return (List<TipologiaEsame>) tipologiaEsameRepository.findAll();
+	public Object findAll() {
+		return tipologiaEsameRepository.findAll();
 	}
 	
 	@Transactional
@@ -38,18 +38,5 @@ public class TipologiaEsameService {
 		else 
 			return false;
 	}
-	@Transactional
-	public CredentialsService getCredentialsService() {
-		return credentialsService;
-	}
-
-	@Transactional
-		public TipologiaEsame tipologiaEsameById(Long id) {
-			Optional<TipologiaEsame> optional = tipologiaEsameRepository.findById(id);
-			if (optional.isPresent())
-				return optional.get();
-			else 
-				return null;
-		}
 	
 }

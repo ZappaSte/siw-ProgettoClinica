@@ -41,9 +41,65 @@ public class Esame {
 	@OneToMany(mappedBy = "esame", cascade = CascadeType.ALL)
 	private List<Risultato> risultati;
 
+	
+	/****************************************************************************************************/
+	/******************************************METODI GET E SET******************************************/
+	/****************************************************************************************************/
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getDataPrenotazione() {
+		return dataPrenotazione;
+	}
+
+	public void setDataPrenotazione(LocalDateTime dataPrenotazione) {
+		this.dataPrenotazione = dataPrenotazione;
+	}
+
+	public LocalDate getDataEsame() {
+		return dataEsame;
+	}
+
+	public void setDataEsame(LocalDate dataEsame) {
+		this.dataEsame = dataEsame;
+	}
+
 	public User getPaziente() {
-		// TODO Auto-generated method stub
-		return null;
+		return paziente;
+	}
+
+	public void setPaziente(User paziente) {
+		this.paziente = paziente;
+	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public TipologiaEsame getTipologiaEsame() {
+		return tipologiaEsame;
+	}
+
+	public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+		this.tipologiaEsame = tipologiaEsame;
+	}
+
+	public List<Risultato> getRisultati() {
+		return risultati;
+	}
+
+	public void setRisultati(List<Risultato> risultati) {
+		this.risultati = risultati;
 	}
 
 }

@@ -8,8 +8,6 @@ import it.uniroma3.siw.model.Medico;
 
 public interface MedicoRepository extends CrudRepository<Medico, Long> {
 	
-	List<Medico> findByName(String nome);
-	
-	List<Medico> findByNameAndSurname(String nome, String cognome);
+	public List<Medico> findByNomeOrCognome(String nome, String cognome);
 
 }

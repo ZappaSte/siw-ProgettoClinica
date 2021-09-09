@@ -34,6 +34,10 @@ public class TipologiaEsame {
 	@OneToMany(mappedBy = "tipologiaEsame", cascade = CascadeType.ALL)
 	private List<Requisito> requisiti;
 
+	/****************************************************************************************************/
+	/******************************************METODI GET E SET******************************************/
+	/****************************************************************************************************/
+	
 	public Long getId() {
 		return id;
 	}

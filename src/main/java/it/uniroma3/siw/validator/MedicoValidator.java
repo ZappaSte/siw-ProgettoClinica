@@ -12,8 +12,9 @@ import it.uniroma3.siw.service.MedicoService;
 
 public class MedicoValidator implements Validator{
 
+	
 	@Autowired
-	private MedicoService doctorService;
+	private MedicoService medicoService;
 	
     private static final Logger logger = LoggerFactory.getLogger(MedicoValidator.class);
 
@@ -25,7 +26,7 @@ public class MedicoValidator implements Validator{
 
 		if (!errors.hasErrors()) {
 			logger.debug("confermato: valori non nulli");
-			if (this.doctorService.alreadyExists((Medico)o)) {
+			if (this.medicoService.alreadyExists((Medico)o)) {
 				logger.debug("e' un duplicato");
 				errors.reject("duplicato");
 			}
@@ -36,5 +37,5 @@ public class MedicoValidator implements Validator{
 	public boolean supports(Class<?> aClass) {
 		return Medico.class.equals(aClass);
 	}
-	
+
 }

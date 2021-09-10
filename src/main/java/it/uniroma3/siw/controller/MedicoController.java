@@ -8,11 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import it.uniroma3.siw.service.MedicoService;
 
 
 @Controller
+@SessionAttributes("accountCorrente")
 public class MedicoController {
 	
 	

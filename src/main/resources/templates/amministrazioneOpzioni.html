@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		<div th:fragment = "login">
+			<form th:if="${accountCorrente == null}">
+				&nbsp;
+				<h3>ACCESSO RISERVATO ALL' AMMINISTRAZIONE</h3>			
+				<button type="submit">
+					<a style="text-decoration:none" th:href="@{/login}">Accedi </a>
+				</button>
+			</form>
+			<form th:if="${accountCorrente != null}">
+				<a th:text="|${accountCorrente.username}|"></a>
+			 	<a style="text-decoration:none" th:href="@{/logout}">Logout </a>
+			</form>		
+		</div>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

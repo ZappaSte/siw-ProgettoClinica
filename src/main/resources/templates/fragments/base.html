@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+	<meta charset="UTF-8" />
+	<link th:href="@{/css/my-style.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="InOut" th:fragment = "login">
+	</div>
+	
+	<div class="Titolo" th:fragment = "logo">
+ 		<img class="Logo" src="images/logo_bios.png" />
+ 	</div>
+	
+	<div class="Navigator" th:fragment = "navigator">
+		<a style="text-decoration:none" href="/">Home</a>	|
+		<a style="text-decoration:none" href="tipologiaEsami.html" th:action="@{/tipologiaEsami}" th:href="@{/tipologiaEsami}">Esami</a>	|
+		<a style="text-decoration:none" href="pazienteOpzioni.html" th:action="@{/pazienteOpzioni}" th:href="@{/pazienteOpzioni}">Accesso Pazienti</a>	|
+		<a style="text-decoration:none" href="amministrazioneOpzioni.html" th:action="@{/amministrazioneOpzioni}" th:href="@{/amministrazioneOpzioni}">Accesso Amministrazione</a>
+	</div>
+	
+	<div class="Footer" th:fragment = "footer">
+		<footer>Via Ugo Foscolo 6 - Cupra Marittima (AP) - 63064 
+				&nbsp&nbsp&nbsp
+				email: bios@quailab.it &nbsp tel: 0735/777892</footer>
+	</div>
+</body>
+</html>

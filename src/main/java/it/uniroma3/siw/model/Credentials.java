@@ -29,6 +29,9 @@ public class Credentials {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
+	
+	@OneToOne(cascade= {CascadeType.MERGE, CascadeType.REFRESH})
+	private Paziente paziente;
 
 		
 	/****************************************************************************************************/
@@ -74,4 +77,14 @@ public class Credentials {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public Paziente getPaziente() {
+		return paziente;
+	}
+
+	public void setPaziente(Paziente paziente) {
+		this.paziente = paziente;
+	}
+	
+	
 }

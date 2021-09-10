@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		<table></table>
+   		<h3>ORARIO PRELIEVI : </h3>
+   		<h2>Dal Luned&igrave; al Sabato dalle 7:00 alle 10:00</h2>
+   		<h3>ORARIO CONSEGNA CAMPIONI : </h3>
+   		<h2>Dal Luned&igrave; al Sabato dalle 7:00 alle 11:00</h2>
+   		<h3>ORARIO RITIRO REFERTI : </h3>
+   		<h2>Dal Luned&igrave; al Venerd&igrave; dalle 7:00 alle 15:00, il Sabato dalle 10:00 alle 12:00</h2>
+   		<h3>METODI DI PAGAMENTO:</h3>
+   		<div class="Pagamento">
+ 			<img src="images/card1.png" />
+ 			<img src="images/card2.png" />
+ 			<img src="images/cont.png" />
+ 		</div>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

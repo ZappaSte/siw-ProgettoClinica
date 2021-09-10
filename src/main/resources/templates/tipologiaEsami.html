@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+<body>
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		<table></table>
+   		<h3>ACCESSO AGLI UTENTI </h3>
+   		<h1>I prelievi vengono effettuati tutti i giorni dal Luned&igrave; al Sabato dalle 7:00 alle 10:00. 
+   			Il tempo medio di erogazione del servizio dall'arrivo fino al completamento del prelievo &egrave; di circa 20 minuti 
+   			considerando una maggiore concentrazione degli accessi intorno le 8:30. Al momento dell'accettazione vengono inseriti 
+   			nel computer i dati della tessera sanitaria oltre all'elenco delle prestazioni richieste.</h1>
+   		<h3>PAGAMENTI </h3>
+   		<h1>Il pagamento del servizio pu&ograve; essere effettuato o al momento dell'accettazione o del ritiro del referto. 
+   			Si pu&ograve; pagare in contanti, con carta di credito o bancomat con rilascio contestuale della fattura. 
+   			I costi delle prestazioni sono quelli del tariffario aziendale salvo godere di esenzione.</h1>
+   			
+   		<h3>LISTA ESAMI </h3>
+		<table>
+			<tr th:each="tipologiaEsame : ${tipologiaEsami}">
+				<td>
+					<a href="tipologiaEsame.html" 
+					   th:href="@{'/tipologiaEsame' + '/' + ${tipologiaEsame.id}}" 
+					   th:text="| &bull; ${tipologiaEsame.nome}|">Nome</a>
+				</td>
+			</tr>
+	    </table>
+	    &nbsp;
+	    <span th:if="${accountCorrente != null}">
+			<form th:href="@{admin/tipologiaEsameForm}" th:action="@{admin/tipologiaEsameForm}" >
+				<button type="submit">Inserisci uno nuovo tipo di esame</button>
+			</form>
+		</span>	
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

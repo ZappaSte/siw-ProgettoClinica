@@ -3,8 +3,6 @@ package it.uniroma3.siw.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,14 +33,8 @@ public class CredentialsService {
 		
     @Transactional
     public Credentials saveCredentials(Credentials credentials) {
-        credentials.setRole(Credentials.PAZIENTE_ROLE);
+        //credentials.setRole(Credentials.PAZIENTE_ROLE);
         credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
         return this.credentialsRepository.save(credentials);
-    }
-    @Transactional
-    public String getRoleAuthenticated() {
-    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credentials credentials = this.getCredentials(userDetails.getUsername());
-    	return credentials.getRole();
     }
 }

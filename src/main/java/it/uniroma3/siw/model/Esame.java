@@ -30,7 +30,7 @@ public class Esame {
 	
 	
 	@ManyToOne
-	private User paziente;
+	private Paziente paziente;
 	
 	@ManyToOne
 	private Medico medico;
@@ -70,11 +70,11 @@ public class Esame {
 		this.dataEsame = dataEsame;
 	}
 
-	public User getPaziente() {
+	public Paziente getPaziente() {
 		return paziente;
 	}
 
-	public void setPaziente(User paziente) {
+	public void setPaziente(Paziente paziente) {
 		this.paziente = paziente;
 	}
 

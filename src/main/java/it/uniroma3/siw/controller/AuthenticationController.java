@@ -33,6 +33,18 @@ public class AuthenticationController {
 		
     }
 	
+	@RequestMapping(value = { "/pazienteOpzioni"}, method = RequestMethod.GET)
+    public String pazienteOpzioni(Model model) {
+			return "pazienteOpzioni";
+		
+    }
+	
+	@RequestMapping(value = { "/amministrazioneOpzioni"}, method = RequestMethod.GET)
+    public String amministrazioneOpzioni(Model model) {
+			return "amministrazioneOpzioni";
+		
+    }
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET) 
 	public String showLoginForm (Model model) {
 		return "loginForm";

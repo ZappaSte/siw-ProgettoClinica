@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.model.TipologiaEsame;
 import it.uniroma3.siw.repository.TipologiaEsameRepository;
-
 @Service
 public class TipologiaEsameService {
 
@@ -24,6 +23,15 @@ public class TipologiaEsameService {
 			return optional.get();
 		else 
 			return null;
+	}
+	
+	@Transactional
+	public TipologiaEsame inserisci(TipologiaEsame tipologiaEsame) {
+		return tipologiaEsameRepository.save(tipologiaEsame);
+	}
+	
+	public void save(TipologiaEsame tipologiaEsame) {
+		tipologiaEsameRepository.save(tipologiaEsame);
 	}
 	
 	public Object findAll() {

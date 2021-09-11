@@ -63,8 +63,14 @@ public class AuthenticationController {
 		if(credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
 			model.addAttribute("accountCorrente", credentials);
 		}
+		else if(credentials.getRole().equals(Credentials.PAZIENTE_ROLE)) {
+			model.addAttribute("accountCorrente", credentials);
+		}
 		if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-			return "index";
+			return "amministrazioneOpzioni";
+		}
+		else if (credentials.getRole().equals(Credentials.PAZIENTE_ROLE)) {
+			return "pazienteOpzioni";
 		}
 		return "index";
 	}

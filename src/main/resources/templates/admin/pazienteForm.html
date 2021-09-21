@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci i dati del nuovo paziente:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/pazienteForm}" method="POST">
+   			<table>
+				<tr>
+		            <td>Nome:</td>
+		            <td><input type="text" placeholder="nome" required
+		                       th:field="${paziente.nome}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Cognome:</td>
+		            <td><input type="text" placeholder="cognome" required
+		                       th:field="${paziente.cognome}"/></td>
+		        </tr>
+		        <!--
+		        <tr>
+		            <td>Data di Nascita:</td>
+		            <td><input type="date" placeholder="dataN" required
+		                       th:field="${paziente.dataN}"/></td>
+		        </tr>
+		          -->
+		        <tr>
+		            <td>Luogo di Nascita:</td>
+		            <td><input type="text" placeholder="luogoN" required
+		                       th:field="${paziente.luogoN}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Codice Fiscale:</td>
+		            <td><input type="text" placeholder="codiceFiscale" required
+		                       th:field="${paziente.codiceFiscale}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Email:</td>
+		            <td><input type="text" placeholder="email" required
+		                       th:field="${paziente.email}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Telefono:</td>
+		            <td><input type="text" placeholder="telefono" required
+		                       th:field="${paziente.telefono}"/></td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

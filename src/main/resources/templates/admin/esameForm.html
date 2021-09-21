@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci i dati dell'esame da prenotare:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/esameForm}" method="POST">
+   			<table>
+				<tr>
+		            <td>Data Esame:</td>
+		            <td><input type="date" placeholder="dataEsame" required
+		                       th:field="${esame.dataEsame}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Paziente:</td>
+		            <td>
+		            	<select name="paziente" th:value = "${paziente}">
+			            	<option th:each = "paziente : ${pazienti}"
+			            			th:text = "|${paziente.codiceFiscale}|"
+			            			th:value = "${paziente.id}">Pippo Pluto</option>
+			            </select>
+					</td>
+		        </tr>
+		        <tr>
+		            <td>Medico:</td>
+		            <td>
+		            	<select name="medico" th:value = "${medico}">
+			            	<option th:each = "medico : ${medici}"
+			            			th:text = "|${medico.nome} ${medico.cognome}|"
+			            			th:value = "${medico.id}">Pippo Pluto</option>
+			            </select>
+					</td>
+		        </tr>
+		        <tr>
+		            <td>Tipologia Esame:</td>
+		            <td>
+		            	<select name="tipologiaEsame" th:value = "${tipologiaEsame}">
+			            	<option th:each = "tipologiaEsame : ${tipologiaEsami}"
+			            			th:text = "|${tipologiaEsame.nome} ${tipologiaEsame.prezzo} &euro;|"
+			            			th:value = "${tipologiaEsame.id}">Tampone</option>
+			            </select>
+					</td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

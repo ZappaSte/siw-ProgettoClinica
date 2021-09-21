@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>DATI MEDICO</h3>   		
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+		<table th:object="${medico}">
+			<tr>
+				<td>Nome:</td>
+				<td th:text="*{nome}"></td>
+			</tr>			
+			<tr>
+				<td>Cognome:</td>
+				<td th:text="*{cognome}"></td>
+			</tr>
+			<tr>
+				<td>Specializzazione:</td>
+				<td th:text="*{specializzazione}"></td>
+			</tr>
+		</table>
+		&nbsp;
+		<table>
+			<tr>
+				<td>Elenco Esami effettuati:</td>
+			</tr>
+			<tr th:each="esame : ${medico.esami}">
+				<td>
+					<a href="admin/esame.html" 
+					   th:href="@{'/esame' + '/' + ${esame.id}}" 
+					   th:text="| &bull;${esame.tipologiaEsame.nome} del ${esame.dataEsame}|">Nome del data</a>
+				</td>
+			</tr>
+		</table> 
+		&nbsp;
+	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

@@ -31,6 +31,17 @@
 				<button type="submit">
 					<a style="text-decoration:none" th:href="@{/logout}">Logout </a>
 				</button>
+				<h3>Lista degli esami da lei svolti in questa struttura:</h3>
+				<table>
+					<tr th:each="esame : ${accountCorrente.paziente.esami}">
+						<td>	
+							<a href="esame.html" 
+					   		th:href="@{'/esame' + '/' + ${esame.id}}" 
+					   		th:text="| &bull;${esame.tipologiaEsame.nome} del ${esame.dataEsame}|">Nome del data</a>
+						</td>
+					</tr>
+			    </table>
+			    &nbsp;
 			</form>		
 		</div>
    	</div>

@@ -27,6 +27,15 @@ public class MedicoService {
 			return null;
 	}
 	
+	@Transactional
+	public Medico inserisci(Medico medico) {
+		return medicoRepository.save(medico);
+	}
+	
+	public void save(Medico medico) {
+		medicoRepository.save(medico);
+	}
+	
 	public Object findAll() {
 		return medicoRepository.findAll();
 	}

@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
 </head>
-<body>
-
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci i dati della nuova Tipologia di Esami:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/tipologiaEsameForm}" method="POST">
+   			<table>
+				<tr>
+		            <td>Nome tipologia Esame:</td>
+		            <td><input type="text" placeholder="titolo" required
+		                       th:field="${tipologiaEsame.nome}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Descrizione</td>
+		            <td><input type="text" placeholder="descrizione"
+		                       th:field="${tipologiaEsame.descrizione}"/></td>
+		        </tr>
+				<tr>
+		            <td>Prezzo</td>
+		            <td><input type="number" placeholder="descrizione"
+		                       th:field="${tipologiaEsame.prezzo}"/></td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
 </body>
 </html>

@@ -31,6 +31,14 @@ public class Medico {
 	/****************************************************************************************************/
 	/******************************************METODI GET E SET******************************************/
 	/****************************************************************************************************/
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}	
 	
 	public String getNome() {
 		return nome;
@@ -55,4 +63,14 @@ public class Medico {
 	public void setSpecializzazione(String specializzazione) {
 		this.specializzazione = specializzazione;
 	}
+
+	public List<Esame> getEsami() {
+		return esami;
+	}
+
+	public void setEsami(List<Esame> esami) {
+		this.esami = esami;
+	}
+	
+	
 }

@@ -25,7 +25,17 @@ public class EsameService {
 			return null;
 	}
 	
+	@Transactional
+	public Esame inserisci(Esame esame) {
+		return esameRepository.save(esame);
+	}
+	
+	public void save(Esame esame) {
+		esameRepository.save(esame);
+	}
+	
 	public Object findAll() {
 		return esameRepository.findAll();
 	}
+	
 }

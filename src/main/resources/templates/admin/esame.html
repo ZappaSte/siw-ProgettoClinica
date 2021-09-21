@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>DATI ESAME</h3>   		
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+		<table th:object="${esame}">
+			<tr>
+				<td>Nome:</td>
+				<td th:text="*{tipologiaEsame.nome}"></td>
+			</tr>			
+			<tr>
+				<td>Data Prenotazione:</td>
+				<td th:text="*{dataPrenotazione}"></td>
+			</tr>
+			<tr>
+				<td>Data Esame:</td>
+				<td th:text="*{dataEsame}"></td>
+			</tr>
+			<tr>
+				<td>Medico:</td>
+				<td th:text="|Dottore *{medico.nome} *{medico.cognome}|"></td>
+			</tr>
+			<tr>
+				<td>Paziente:</td>
+				<td th:text="|*{paziente.nome} *{paziente.cognome}|"></td>
+			</tr>
+		</table>
+		&nbsp;
+		<table>
+			<tr>
+				<td>Risultati:</td>
+			</tr>
+			<tr th:each="risultato : ${esame.risultati}">
+				<td>
+					<a th:text="| &bull; ${risultato.nome} ${risultato.valore} ${risultato.unitaDiMisura}|">Titolo</a>
+				</td>
+			</tr>
+		</table> 
+		&nbsp;
+	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

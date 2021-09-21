@@ -28,13 +28,7 @@
 					   th:text="| &bull; ${tipologiaEsame.nome}|">Nome</a>
 				</td>
 			</tr>
-	    </table>
-	    &nbsp;
-	    <span th:if="${accountCorrente != null}">
-			<form th:href="@{admin/tipologiaEsameForm}" th:action="@{admin/tipologiaEsameForm}" >
-				<button type="submit">Inserisci uno nuovo tipo di esame</button>
-			</form>
-		</span>	
+	    </table>	
    	</div>
 	
 	<div th:replace="fragments/base.html :: footer"></div>

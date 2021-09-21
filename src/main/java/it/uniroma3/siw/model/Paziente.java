@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Paziente {
 	
@@ -27,12 +29,13 @@ public class Paziente {
 		private String cognome;
 
 		@Column(nullable = false)
+		@DateTimeFormat(pattern = "yyyy-MM-dd")
 		private LocalDate dataN;
 
 		@Column(nullable = false)
 		private String luogoN;
 
-		@Column(nullable = false)
+		@Column(nullable = false, unique = true)
 		private String codiceFiscale;
 
 		@Column(nullable = false)

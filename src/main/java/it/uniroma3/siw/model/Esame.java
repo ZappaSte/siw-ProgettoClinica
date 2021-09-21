@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Esame {
 	
@@ -26,6 +28,7 @@ public class Esame {
 	private LocalDateTime dataPrenotazione;
 	
 	@Column(nullable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataEsame;
 	
 	
@@ -41,7 +44,25 @@ public class Esame {
 	@OneToMany(mappedBy = "esame", cascade = CascadeType.ALL)
 	private List<Risultato> risultati;
 
+	public Esame() {
+		
+	}
 	
+	
+	
+	public Esame(Long id, LocalDateTime dataPrenotazione, LocalDate dataEsame, Paziente paziente, Medico medico,
+			TipologiaEsame tipologiaEsame) {
+		super();
+		this.id = id;
+		this.dataPrenotazione = dataPrenotazione;
+		this.dataEsame = dataEsame;
+		this.paziente = paziente;
+		this.medico = medico;
+		this.tipologiaEsame = tipologiaEsame;
+	}
+
+
+
 	/****************************************************************************************************/
 	/******************************************METODI GET E SET******************************************/
 	/****************************************************************************************************/
@@ -102,4 +123,5 @@ public class Esame {
 		this.risultati = risultati;
 	}
 
+	
 }

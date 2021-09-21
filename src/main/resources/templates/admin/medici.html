@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Lista Medici che collaborano con la struttura:</h3>
+   		
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+	   	<table>
+	   		<tr th:each="medico : ${medici}">
+				<td>
+					<a href="medico.html" 
+					   th:href="@{'/medico' + '/' + ${medico.id}}" 
+					   th:text="| &bull; ${medico.nome} ${medico.cognome}|">Nome</a>
+				</td>
+			</tr>
+		</table>
+   		
+   		
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

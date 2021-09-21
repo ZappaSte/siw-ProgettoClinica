@@ -18,7 +18,9 @@ public class Risultato {
 	private String nome;
 	
 	@Column(nullable=false)
-	private Long valore;
+	private String valore;
+	
+	private String unitaDiMisura;
 	
 	@ManyToOne
 	private Esame esame;
@@ -28,7 +30,7 @@ public class Risultato {
 		
 	}
 
-	public Risultato(Long id, String nome, Long valore, Esame esame) {
+	public Risultato(Long id, String nome, String valore, String unitaDiMisura, Esame esame) {
 		this.id = id;
 		this.nome = nome;
 		this.valore = valore;
@@ -56,12 +58,20 @@ public class Risultato {
 		this.nome = nome;
 	}
 
-	public Long getValore() {
+	public String getValore() {
 		return valore;
 	}
 
-	public void setValore(Long valore) {
+	public void setValore(String valore) {
 		this.valore = valore;
+	}
+	
+	public String getUnitaDiMisura() {
+		return unitaDiMisura;
+	}
+
+	public void setUnitaDiMisura(String unitaDiMisura) {
+		this.unitaDiMisura = unitaDiMisura;
 	}
 
 	public Esame getEsame() {

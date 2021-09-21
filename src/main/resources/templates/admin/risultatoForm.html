@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci RISULTATI dell'esame:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/risultatoForm}" method="POST">
+   			<table>
+   				<tr>
+		            <td>Codice Esame:</td>
+		            <td>
+		            	<select name="esame" th:value = "${esame}">
+			            	<option th:each = "esame : ${esami}"
+			            			th:text = "|${esame.id}|"
+			            			th:value = "${esame.id}">ID</option>
+			            </select>
+					</td>
+		        </tr>
+				<tr>
+		            <td>Nome:</td>
+		            <td><input type="text" placeholder="nome" required
+		                       th:field="${risultato.nome}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Valore:</td>
+		            <td><input type="text" placeholder="valore" required
+		                       th:field="${risultato.valore}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Unit&agrave; di misura:</td>
+		            <td><input type="text" placeholder="unitaDiMisura"
+		                       th:field="${risultato.unitaDiMisura}"/></td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

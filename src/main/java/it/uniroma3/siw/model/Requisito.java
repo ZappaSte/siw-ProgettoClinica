@@ -67,6 +67,4 @@ public class Requisito {
 		this.tipologiaEsame = tipologiaEsame;
 	}
 	
-	
-	
 }

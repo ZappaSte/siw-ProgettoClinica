@@ -15,10 +15,12 @@ import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Esame;
 import it.uniroma3.siw.model.Medico;
 import it.uniroma3.siw.model.Paziente;
+import it.uniroma3.siw.model.Requisito;
 import it.uniroma3.siw.model.Risultato;
 import it.uniroma3.siw.repository.EsameRepository;
 import it.uniroma3.siw.repository.MedicoRepository;
 import it.uniroma3.siw.repository.PazienteRepository;
+import it.uniroma3.siw.repository.RequisitoRepository;
 import it.uniroma3.siw.repository.RisultatoRepository;
 import it.uniroma3.siw.repository.TipologiaEsameRepository;
 import it.uniroma3.siw.service.CredentialsService;
@@ -39,6 +41,9 @@ public class DBpopulationClinica implements ApplicationRunner{
 	
 	@Autowired
 	private RisultatoRepository risultatoRepository;
+	
+	@Autowired
+	private RequisitoRepository requisitoRepository;
 	
 	@Autowired
 	private CredentialsService credentialsService;
@@ -79,6 +84,22 @@ public class DBpopulationClinica implements ApplicationRunner{
 		tp5.setNome("Esame malattie venerie");
 		tp5.setDescrizione("Controllo generico malattie venerie(epatite,HIV,...)");
 		tp5.setPrezzo(new BigDecimal("30.00"));
+		
+		/*CARICAMENTO PRE-REQUISITI DI UNA TIPOLOGIA DI ESAME*/
+		Requisito rq1 = new Requisito();
+		rq1.setNome("digiuno 12");
+		rq1.setDescrizione("Il paziente deve essere a digiuno da 12 ore prima dell'esame");
+		rq1.setTipologiaEsame(tp3);
+		
+		Requisito rq2 = new Requisito();
+		rq2.setNome("no alcol");
+		rq2.setDescrizione("Il paziente non deve bere alcolici 24 ore prima dell'esame");
+		rq2.setTipologiaEsame(tp3);
+		
+		Requisito rq3 = new Requisito();
+		rq3.setNome("urina");
+		rq3.setDescrizione("L'urina da analizzare deve essere quella appena sveglio");
+		rq3.setTipologiaEsame(tp4);
 				
 		/*CARICAMENTO MEDICI*/
 		Medico m1 = new Medico();
@@ -301,6 +322,9 @@ public class DBpopulationClinica implements ApplicationRunner{
 		tipologiaEsameRepository.save(tp3);
 		tipologiaEsameRepository.save(tp4);
 		tipologiaEsameRepository.save(tp5);
+		requisitoRepository.save(rq1);
+		requisitoRepository.save(rq2);
+		requisitoRepository.save(rq3);
 		medicoRepository.save(m1);
 		medicoRepository.save(m2);
 		medicoRepository.save(m3);

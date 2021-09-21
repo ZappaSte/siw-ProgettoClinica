@@ -23,6 +23,14 @@
 				<td th:text="|*{prezzo} &euro;|"></td>
 			</tr>
 		</table>
+		<table>
+			<h3>Pre-Requisiti relativi al sudetto esame:</h3>
+			<tr th:each="requisito : ${tipologiaEsame.requisiti}">
+				<td>	
+					<a th:text="| &bull;${requisito.descrizione}|">Descrizione</a>
+				</td>
+			</tr>
+		</table>
 		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
 	</div>
 	

@@ -85,6 +85,5 @@ public class TipologiaEsame {
 	public void setRequisiti(List<Requisito> requisiti) {
 		this.requisiti = requisiti;
 	}
-
 	
 }

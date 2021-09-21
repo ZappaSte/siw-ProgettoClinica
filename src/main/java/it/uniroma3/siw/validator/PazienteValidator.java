@@ -21,14 +21,30 @@ public class PazienteValidator implements Validator{
 		return Paziente.class.equals(clazz);
 	}
 
+
 	@Override
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome","required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "codiceFiscale","required");
 		if(this.pazienteService.alreadyExists((Paziente)target)){
 			errors.reject("duplicato");
 		}
 		
 	}
 
+	/*
+	@Override
+	public void validate(Object target, Errors errors) {
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dataN","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "luogoN","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "codiceFiscale","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "telefono","required");
+		if(this.pazienteService.alreadyExists((Paziente)target)){
+			errors.reject("duplicato");
+		}
+		
+	}
+	*/
 }

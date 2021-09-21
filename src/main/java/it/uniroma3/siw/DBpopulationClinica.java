@@ -112,8 +112,8 @@ public class DBpopulationClinica implements ApplicationRunner{
 		p1.setEmail("ste.zappasodi@gmail.com");
 		p1.setTelefono("3661759738");		
 		Credentials c1 = new Credentials();
-		c1.setUsername("ZPPSFN");
-		c1.setPassword("20111997");
+		c1.setUsername(p1.getEmail());
+		c1.setPassword(p1.getCodiceFiscale());
 		c1.setRole("PAZIENTE");
 		c1.setPaziente(p1);
 		
@@ -127,8 +127,8 @@ public class DBpopulationClinica implements ApplicationRunner{
 		p2.setEmail("pippo.pluto@gmail.com");
 		p2.setTelefono("3661752798");		
 		Credentials c2 = new Credentials();
-		c2.setUsername("Pippo");
-		c2.setPassword("pippopluto");
+		c2.setUsername(p2.getEmail());
+		c2.setPassword(p2.getCodiceFiscale());
 		c2.setRole("PAZIENTE");
 		c2.setPaziente(p2);
 		

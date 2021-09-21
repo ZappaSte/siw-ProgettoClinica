@@ -38,7 +38,7 @@ public class PazienteService {
 
 	@Transactional
 	public boolean alreadyExists(Paziente paziente) {
-		List<Paziente> pazienti = this.pazienteRepository.findByNomeOrCognome(paziente.getNome(), paziente.getCognome());
+		List<Paziente> pazienti = this.pazienteRepository.findByCodiceFiscale(paziente.getCodiceFiscale());
 		if (pazienti.size() > 0)
 			return true;
 		else 

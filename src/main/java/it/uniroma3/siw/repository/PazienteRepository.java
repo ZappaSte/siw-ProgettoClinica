@@ -14,6 +14,8 @@ public interface PazienteRepository extends CrudRepository<Paziente,Long>{
 	
 	public List<Paziente> findByNomeOrCognome(String nome, String cognome);
 	
+	public List<Paziente> findByCodiceFiscale(String codiceFiscale);
+		
 	public Optional<Paziente> findById(Long id);
 
 }

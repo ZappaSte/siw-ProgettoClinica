@@ -19,7 +19,7 @@ import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Paziente;
 import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.PazienteService;
-//import it.uniroma3.siw.validator.PazienteValidator;
+import it.uniroma3.siw.validator.PazienteValidator;
 
 @Controller
 public class PazienteController {
@@ -27,8 +27,8 @@ public class PazienteController {
 	@Autowired
 	private PazienteService pazienteService;
 	
-	//@Autowired
-	//private PazienteValidator pazienteValidator;
+	@Autowired
+	private PazienteValidator pazienteValidator;
 	
 	@Autowired
 	private CredentialsService credentialsService;
@@ -100,11 +100,11 @@ public class PazienteController {
 	public String registerPaziente(@Validated @ModelAttribute("paziente") Paziente paziente,
 			BindingResult bindingResult,Model model) throws Exception{
 
-		//this.pazienteValidator.validate(paziente, bindingResult);
+		this.pazienteValidator.validate(paziente, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
 			Credentials c = new Credentials();
-			c.setUsername(paziente.getEmail());
+			c.setUsername(paziente.getCodiceFiscale());
 			c.setPassword(paziente.getCodiceFiscale());
 			c.setPaziente(paziente);
 			c.setRole(Credentials.PAZIENTE_ROLE);

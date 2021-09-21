@@ -27,7 +27,10 @@
 			</form>
 			<form th:if="${accountCorrente != null && accountCorrente.role == 'PAZIENTE'}">
 				&nbsp;
-				<h3>BENVENUTO PAZIENTE: <a th:text="|${accountCorrente.paziente.nome} ${accountCorrente.paziente.cognome}|"></a> </h3>
+				<h3>BENVENUTO <a th:text="|${accountCorrente.paziente.nome} ${accountCorrente.paziente.cognome} 
+										   nato il ${accountCorrente.paziente.dataN}
+										   a ${accountCorrente.paziente.luogoN}
+										   cell: ${accountCorrente.paziente.telefono}|"></a> </h3>
 				<button type="submit">
 					<a style="text-decoration:none" th:href="@{/logout}">Logout </a>
 				</button>

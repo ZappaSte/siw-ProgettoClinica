@@ -69,7 +69,7 @@ public class TipologiaEsameController {
 		if(!bindingResult.hasErrors()) {
 			tipologiaEsameService.save(tipologiaEsame);
 			model.addAttribute("tipologiaEsami", this.tipologiaEsameService.findAll());
-			return "redirect:/tipologiaEsami";
+			return "redirect:/amministrazioneOpzioni";
 		}
 		return "admin/tipologiaEsameForm";
 	}

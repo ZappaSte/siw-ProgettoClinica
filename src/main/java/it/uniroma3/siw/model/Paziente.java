@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -19,8 +17,8 @@ public class Paziente {
 	//definizione variabili
 
 		@Id
-		@GeneratedValue(strategy =GenerationType.AUTO)
-		private Long id;
+		//@GeneratedValue(strategy =GenerationType.AUTO)
+		private String codiceFiscale;
 
 		@Column(nullable = false)
 		private String nome;
@@ -35,8 +33,8 @@ public class Paziente {
 		@Column(nullable = false)
 		private String luogoN;
 
-		@Column(nullable = false, unique = true)
-		private String codiceFiscale;
+		//@Column(nullable = false, unique = true)
+		//private String codiceFiscale;
 
 		@Column(nullable = false)
 		private String email;
@@ -51,10 +49,9 @@ public class Paziente {
 			this.esami = new ArrayList<>();
 		}
 
-		public Paziente(Long id, String nome, String cognome, LocalDate dataN, String luogoN, String codiceFiscale,
+		public Paziente(String nome, String cognome, LocalDate dataN, String luogoN, String codiceFiscale,
 				String email, String telefono) {
 			super();
-			this.id = id;
 			this.nome = nome;
 			this.cognome = cognome;
 			this.dataN = dataN;
@@ -68,14 +65,6 @@ public class Paziente {
 		/******************************************METODI GET E SET******************************************/
 		/****************************************************************************************************/
 		
-		public Long getId() {
-			return id;
-		}
-
-		public void setId(Long id) {
-			this.id = id;
-		}
-
 		public String getNome() {
 			return nome;
 		}

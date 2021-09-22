@@ -20,7 +20,7 @@
 		            <td>
 		            	<select name="esame" th:value = "${esame}">
 			            	<option th:each = "esame : ${esami}"
-			            			th:text = "|${esame.id}|"
+			            			th:text = "|${esame.id}  &nbsp; esame: ${esame.tipologiaEsame.nome}  &nbsp; paziente: ${esame.paziente.codiceFiscale} |"
 			            			th:value = "${esame.id}">ID</option>
 			            </select>
 					</td>

@@ -17,7 +17,6 @@ public class Paziente {
 	//definizione variabili
 
 		@Id
-		//@GeneratedValue(strategy =GenerationType.AUTO)
 		private String codiceFiscale;
 
 		@Column(nullable = false)
@@ -32,9 +31,6 @@ public class Paziente {
 
 		@Column(nullable = false)
 		private String luogoN;
-
-		//@Column(nullable = false, unique = true)
-		//private String codiceFiscale;
 
 		@Column(nullable = false)
 		private String email;

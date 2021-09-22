@@ -204,7 +204,7 @@ public class DBpopulationClinica implements ApplicationRunner{
 		
 		/*CARICAMENTO RISULTATI ESAME e1*/
 		Risultato r1 = new Risultato();
-		r1.setNome("HIW");
+		r1.setNome("HIV");
 		r1.setValore("Negativo");
 		r1.setEsame(e1);
 		

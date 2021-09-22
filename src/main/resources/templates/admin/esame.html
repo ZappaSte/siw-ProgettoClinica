@@ -39,8 +39,11 @@
 				<td>Risultati:</td>
 			</tr>
 			<tr th:each="risultato : ${esame.risultati}">
-				<td>
+				<td th:if="${risultato.unitaDiMisura} != null">
 					<a th:text="| &bull; ${risultato.nome} ${risultato.valore} ${risultato.unitaDiMisura}|">Titolo</a>
+				</td>
+				<td th:if="${risultato.unitaDiMisura} == null">
+					<a th:text="| &bull; ${risultato.nome} ${risultato.valore}|">Titolo</a>
 				</td>
 			</tr>
 		</table> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci RISULTATI dell'esame:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/inserimentoValoriEsame}" method="GET">
+   			<table>
+   				<tr>
+		            <td>Seleziona Esame:</td>
+		            <td >
+		            	<select name="esame" th:value = "${esame}">
+			            	<option th:if="${esame.inserimento} == false"
+			            			th:each = "esame : ${esami}"
+			            			th:text = "|${esame.id}  &nbsp; esame: ${esame.tipologiaEsame.nome}  
+			            						&nbsp; paziente: ${esame.paziente.codiceFiscale} |"
+			            			th:value = "${esame.id}">ID</option>
+			            </select>
+					</td>
+		            <td width="200px">
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3><a th:text="|Inserisci i risultati dell'esame '${tipologiaEsame.nome}'|"></a></h3>
+   		<h2><a th:text="|di '${esame.paziente.nome} ${esame.paziente.cognome}' del ${esame.dataEsame}|"></a></h2>
+   		
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{'/esame' + '/' + ${esame.id} + '/' + 'admin/valoriRisultatiEsameForm'}" method="POST">
+   			<table>   
+   				<tr th:each="rigaRisultato : ${tipologiaEsame.righeRisultati}">
+					<td>
+						<a th:text="|${rigaRisultato.nome}|">Titolo</a>
+					</td>
+					<td>
+						<input type="text" placeholder="valoreRisultato" 
+							   th:field="${valoreRigaRisultato.valore}"/>
+		        	</td>
+		        	<td th:if="${rigaRisultato.unitaDiMisura} != null">
+						<a th:text="|${rigaRisultato.unitaDiMisura}|">Titolo</a>
+					</td>
+				</tr>
+	    	</table>
+	    	<br>
+	    	<button type="submit">Conferma Inserimento</button>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

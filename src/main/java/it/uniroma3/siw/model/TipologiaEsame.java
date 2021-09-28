@@ -33,6 +33,9 @@ public class TipologiaEsame {
 	
 	@OneToMany(mappedBy = "tipologiaEsame", cascade = CascadeType.ALL)
 	private List<Requisito> requisiti;
+	
+	@OneToMany(mappedBy = "tipologiaEsame", cascade = CascadeType.ALL)
+	private List<RigaRisultato> righeRisultati;
 
 	/****************************************************************************************************/
 	/******************************************METODI GET E SET******************************************/
@@ -85,5 +88,15 @@ public class TipologiaEsame {
 	public void setRequisiti(List<Requisito> requisiti) {
 		this.requisiti = requisiti;
 	}
+
+	public List<RigaRisultato> getRigheRisultati() {
+		return righeRisultati;
+	}
+
+	public void setRigheRisultati(List<RigaRisultato> righeRisultati) {
+		this.righeRisultati = righeRisultati;
+	}
+	
+	
 	
 }

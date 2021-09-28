@@ -11,18 +11,22 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import it.uniroma3.siw.model.TipologiaEsame;
+import it.uniroma3.siw.model.ValoreRigaRisultato;
 import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Esame;
 import it.uniroma3.siw.model.Medico;
 import it.uniroma3.siw.model.Paziente;
 import it.uniroma3.siw.model.Requisito;
+import it.uniroma3.siw.model.RigaRisultato;
 import it.uniroma3.siw.model.Risultato;
 import it.uniroma3.siw.repository.EsameRepository;
 import it.uniroma3.siw.repository.MedicoRepository;
 import it.uniroma3.siw.repository.PazienteRepository;
 import it.uniroma3.siw.repository.RequisitoRepository;
+import it.uniroma3.siw.repository.RigaRisultatoRepository;
 import it.uniroma3.siw.repository.RisultatoRepository;
 import it.uniroma3.siw.repository.TipologiaEsameRepository;
+import it.uniroma3.siw.repository.ValoreRigaRisultatoRepository;
 import it.uniroma3.siw.service.CredentialsService;
 @Component
 public class DBpopulationClinica implements ApplicationRunner{
@@ -41,6 +45,12 @@ public class DBpopulationClinica implements ApplicationRunner{
 	
 	@Autowired
 	private RisultatoRepository risultatoRepository;
+	
+	@Autowired
+	private RigaRisultatoRepository rigaRisultatoRepository;
+	
+	@Autowired
+	private ValoreRigaRisultatoRepository valoreRigaRisultatoRepository;
 	
 	@Autowired
 	private RequisitoRepository requisitoRepository;
@@ -202,6 +212,212 @@ public class DBpopulationClinica implements ApplicationRunner{
 		e6.setMedico(m2);
 		e6.setTipologiaEsame(tp2);
 		
+		Esame e7 = new Esame();
+		e7.setDataPrenotazione(LocalDateTime.now());
+		LocalDate dataE7 = LocalDate.of(2021,Month.SEPTEMBER,24);
+		e7.setDataEsame(dataE7);
+		e7.setPaziente(p1);
+		e7.setMedico(m2);
+		e7.setTipologiaEsame(tp3);
+		
+		/*CARICAMENTO RIGARISULTATO DELLA TIPOLOGIA TP1*/
+		RigaRisultato rr1 = new RigaRisultato();
+		rr1.setNome("SARS-CoV-2 RNA molecolare");
+		rr1.setTipologiaEsame(tp1);
+		
+		/*CARICAMENTO RIGARISULTATO DELLA TIPOLOGIA TP2*/
+		RigaRisultato rr2 = new RigaRisultato();
+		rr2.setNome("SARS-CoV-2 RNA rapido");
+		rr2.setTipologiaEsame(tp2);
+		
+		/*CARICAMENTO RIGARISULTATO DELLA TIPOLOGIA TP3*/
+		RigaRisultato rr16 = new RigaRisultato();
+		rr16.setNome("Colesterolo HDL");
+		rr16.setUnitaDiMisura("mg/dL");
+		rr16.setTipologiaEsame(tp3);
+		RigaRisultato rr17 = new RigaRisultato();
+		rr17.setNome("Protidemia");
+		rr17.setUnitaDiMisura("g %");
+		rr17.setTipologiaEsame(tp3);
+		RigaRisultato rr18 = new RigaRisultato();
+		rr18.setNome("Globuli Rossi");
+		rr18.setUnitaDiMisura("/uL");
+		rr18.setTipologiaEsame(tp3);
+		RigaRisultato rr19 = new RigaRisultato();
+		rr19.setNome("Globuli Bianchi");
+		rr19.setUnitaDiMisura("/uL");
+		rr19.setTipologiaEsame(tp3);
+		RigaRisultato rr20 = new RigaRisultato();
+		rr20.setNome("Piastrine");
+		rr20.setUnitaDiMisura("/uL");
+		rr20.setTipologiaEsame(tp3);
+		RigaRisultato rr21 = new RigaRisultato();
+		rr21.setNome("Ferritina");
+		rr21.setUnitaDiMisura("ng/mL");
+		rr21.setTipologiaEsame(tp3);
+		RigaRisultato rr22 = new RigaRisultato();
+		rr22.setNome("Potassio Serico");
+		rr22.setUnitaDiMisura("mEq/L");
+		rr22.setTipologiaEsame(tp3);
+		
+		/*CARICAMENTO RIGARISULTATO DELLA TIPOLOGIA TP4*/
+		RigaRisultato rr3 = new RigaRisultato();
+		rr3.setNome("Colore");
+		rr3.setTipologiaEsame(tp4);
+		RigaRisultato rr4 = new RigaRisultato();
+		rr4.setNome("Aspetto");
+		rr4.setTipologiaEsame(tp4);
+		RigaRisultato rr5 = new RigaRisultato();
+		rr5.setNome("Peso Specifico");
+		rr5.setTipologiaEsame(tp4);
+		RigaRisultato rr6 = new RigaRisultato();
+		rr6.setNome("Proteine");
+		rr6.setUnitaDiMisura("mg/dL");
+		rr6.setTipologiaEsame(tp4);
+		RigaRisultato rr7 = new RigaRisultato();
+		rr7.setNome("Glucosio");
+		rr7.setUnitaDiMisura("mg/dL");
+		rr7.setTipologiaEsame(tp4);
+		RigaRisultato rr8 = new RigaRisultato();
+		rr8.setNome("Emoglobina");
+		rr8.setUnitaDiMisura("mg/dL");
+		rr8.setTipologiaEsame(tp4);
+		
+		/*CARICAMENTO RIGARISULTATO DELLA TIPOLOGIA TP5*/
+		RigaRisultato rr9 = new RigaRisultato();
+		rr9.setNome("HIV");
+		rr9.setTipologiaEsame(tp5);
+		RigaRisultato rr10 = new RigaRisultato();
+		rr10.setNome("Epatite B");
+		rr10.setTipologiaEsame(tp5);
+		RigaRisultato rr11 = new RigaRisultato();
+		rr11.setNome("Epatite C");
+		rr11.setTipologiaEsame(tp5);
+		RigaRisultato rr12 = new RigaRisultato();
+		rr12.setNome("Clamidia");
+		rr12.setTipologiaEsame(tp5);
+		RigaRisultato rr13 = new RigaRisultato();
+		rr13.setNome("Sifiride");
+		rr13.setTipologiaEsame(tp5);
+		RigaRisultato rr14 = new RigaRisultato();
+		rr14.setNome("Herpes Genitale");
+		rr14.setTipologiaEsame(tp5);
+		RigaRisultato rr15 = new RigaRisultato();
+		rr15.setNome("Papillomavirus (HPV)");
+		rr15.setTipologiaEsame(tp5);
+		
+		/*CARICAMENTO VALORIRIGARISULTATO DELL'ESAME E1 DELLA TIPOLOGIA TP5*/
+		ValoreRigaRisultato vrr1 = new ValoreRigaRisultato();
+		vrr1.setValore("Negativo");
+		vrr1.setRigaRisultato(rr9);
+		vrr1.setEsame(e1);
+		ValoreRigaRisultato vrr2 = new ValoreRigaRisultato();
+		vrr2.setValore("Negativo");
+		vrr2.setRigaRisultato(rr10);
+		vrr2.setEsame(e1);
+		ValoreRigaRisultato vrr3 = new ValoreRigaRisultato();
+		vrr3.setValore("Negativo");
+		vrr3.setRigaRisultato(rr11);
+		vrr3.setEsame(e1);
+		ValoreRigaRisultato vrr4 = new ValoreRigaRisultato();
+		vrr4.setValore("Negativo");
+		vrr4.setRigaRisultato(rr12);
+		vrr4.setEsame(e1);
+		ValoreRigaRisultato vrr5 = new ValoreRigaRisultato();
+		vrr5.setValore("Negativo");
+		vrr5.setRigaRisultato(rr13);
+		vrr5.setEsame(e1);
+		ValoreRigaRisultato vrr6 = new ValoreRigaRisultato();
+		vrr6.setValore("Negativo");
+		vrr6.setRigaRisultato(rr14);
+		vrr6.setEsame(e1);
+		ValoreRigaRisultato vrr7 = new ValoreRigaRisultato();
+		vrr7.setValore("Negativo");
+		vrr7.setRigaRisultato(rr15);
+		vrr7.setEsame(e1);
+		
+		e1.setInserimento(true);
+		
+		/*CARICAMENTO VALORIRIGARISULTATO DELL'ESAME E2 DELLA TIPOLOGIA TP4*/
+		ValoreRigaRisultato vrr8 = new ValoreRigaRisultato();
+		vrr8.setValore("Giallo");
+		vrr8.setRigaRisultato(rr3);
+		vrr8.setEsame(e2);
+		ValoreRigaRisultato vrr9 = new ValoreRigaRisultato();
+		vrr9.setValore("Limpido");
+		vrr9.setRigaRisultato(rr4);
+		vrr9.setEsame(e2);
+		ValoreRigaRisultato vrr10 = new ValoreRigaRisultato();
+		vrr10.setValore("1.031");
+		vrr10.setRigaRisultato(rr5);
+		vrr10.setEsame(e2);
+		ValoreRigaRisultato vrr11 = new ValoreRigaRisultato();
+		vrr11.setValore("10");
+		vrr11.setRigaRisultato(rr6);
+		vrr11.setEsame(e2);
+		ValoreRigaRisultato vrr12 = new ValoreRigaRisultato();
+		vrr12.setValore("0,00");
+		vrr12.setRigaRisultato(rr7);
+		vrr12.setEsame(e2);
+		ValoreRigaRisultato vrr13 = new ValoreRigaRisultato();
+		vrr13.setValore("0,00");
+		vrr13.setRigaRisultato(rr8);
+		vrr13.setEsame(e2);
+		
+		e2.setInserimento(true);
+		
+		/*CARICAMENTO VALORIRIGARISULTATO DELL'ESAME E3 DELLA TIPOLOGIA TP1*/
+		ValoreRigaRisultato vrr14 = new ValoreRigaRisultato();
+		vrr14.setValore("Negativo");
+		vrr14.setRigaRisultato(rr1);
+		vrr14.setEsame(e3);
+		
+		e3.setInserimento(true);
+		
+		/*CARICAMENTO VALORIRIGARISULTATO DELL'ESAME E4 DELLA TIPOLOGIA TP4*/
+		ValoreRigaRisultato vrr15 = new ValoreRigaRisultato();
+		vrr15.setValore("Giallo");
+		vrr15.setRigaRisultato(rr3);
+		vrr15.setEsame(e4);
+		ValoreRigaRisultato vrr16 = new ValoreRigaRisultato();
+		vrr16.setValore("Limpido");
+		vrr16.setRigaRisultato(rr4);
+		vrr16.setEsame(e4);
+		ValoreRigaRisultato vrr17 = new ValoreRigaRisultato();
+		vrr17.setValore("1.020");
+		vrr17.setRigaRisultato(rr5);
+		vrr17.setEsame(e4);
+		ValoreRigaRisultato vrr18 = new ValoreRigaRisultato();
+		vrr18.setValore("15");
+		vrr18.setRigaRisultato(rr6);
+		vrr18.setEsame(e4);
+		ValoreRigaRisultato vrr19 = new ValoreRigaRisultato();
+		vrr19.setValore("0,00");
+		vrr19.setRigaRisultato(rr7);
+		vrr19.setEsame(e4);
+		ValoreRigaRisultato vrr20 = new ValoreRigaRisultato();
+		vrr20.setValore("0,00");
+		vrr20.setRigaRisultato(rr8);
+		vrr20.setEsame(e4);
+		
+		e4.setInserimento(true);
+		
+		/*CARICAMENTO VALORIRIGARISULTATO DELL'ESAME E5 DELLA TIPOLOGIA TP1*/
+		ValoreRigaRisultato vrr21 = new ValoreRigaRisultato();
+		vrr21.setValore("Negativo");
+		vrr21.setRigaRisultato(rr1);
+		vrr21.setEsame(e5);
+		
+		e5.setInserimento(true);
+		
+		/*CARICAMENTO VALORIRIGARISULTATO DELL'ESAME E6 DELLA TIPOLOGIA TP2*/
+		ValoreRigaRisultato vrr22 = new ValoreRigaRisultato();
+		vrr22.setValore("Positivo");
+		vrr22.setRigaRisultato(rr2);
+		vrr22.setEsame(e6);
+		
+		e6.setInserimento(true);
+		
 		/*CARICAMENTO RISULTATI ESAME e1*/
 		Risultato r1 = new Risultato();
 		r1.setNome("HIV");
@@ -340,6 +556,7 @@ public class DBpopulationClinica implements ApplicationRunner{
 		esameRepository.save(e4);
 		esameRepository.save(e5);
 		esameRepository.save(e6);
+		esameRepository.save(e7);
 		risultatoRepository.save(r1);
 		risultatoRepository.save(r2);
 		risultatoRepository.save(r3);
@@ -359,7 +576,50 @@ public class DBpopulationClinica implements ApplicationRunner{
 		risultatoRepository.save(r17);
 		risultatoRepository.save(r18);
 		risultatoRepository.save(r19);
-		
+		rigaRisultatoRepository.save(rr1);
+		rigaRisultatoRepository.save(rr2);
+		rigaRisultatoRepository.save(rr3);
+		rigaRisultatoRepository.save(rr4);
+		rigaRisultatoRepository.save(rr5);
+		rigaRisultatoRepository.save(rr6);
+		rigaRisultatoRepository.save(rr7);
+		rigaRisultatoRepository.save(rr8);
+		rigaRisultatoRepository.save(rr9);
+		rigaRisultatoRepository.save(rr10);
+		rigaRisultatoRepository.save(rr11);
+		rigaRisultatoRepository.save(rr12);
+		rigaRisultatoRepository.save(rr13);
+		rigaRisultatoRepository.save(rr14);
+		rigaRisultatoRepository.save(rr15);
+		rigaRisultatoRepository.save(rr16);
+		rigaRisultatoRepository.save(rr17);
+		rigaRisultatoRepository.save(rr18);
+		rigaRisultatoRepository.save(rr19);
+		rigaRisultatoRepository.save(rr20);
+		rigaRisultatoRepository.save(rr21);
+		rigaRisultatoRepository.save(rr22);
+		valoreRigaRisultatoRepository.save(vrr1);
+		valoreRigaRisultatoRepository.save(vrr2);
+		valoreRigaRisultatoRepository.save(vrr3);
+		valoreRigaRisultatoRepository.save(vrr4);
+		valoreRigaRisultatoRepository.save(vrr5);
+		valoreRigaRisultatoRepository.save(vrr6);
+		valoreRigaRisultatoRepository.save(vrr7);
+		valoreRigaRisultatoRepository.save(vrr8);
+		valoreRigaRisultatoRepository.save(vrr9);
+		valoreRigaRisultatoRepository.save(vrr10);
+		valoreRigaRisultatoRepository.save(vrr11);
+		valoreRigaRisultatoRepository.save(vrr12);
+		valoreRigaRisultatoRepository.save(vrr13);
+		valoreRigaRisultatoRepository.save(vrr14);
+		valoreRigaRisultatoRepository.save(vrr15);
+		valoreRigaRisultatoRepository.save(vrr16);
+		valoreRigaRisultatoRepository.save(vrr17);
+		valoreRigaRisultatoRepository.save(vrr18);
+		valoreRigaRisultatoRepository.save(vrr19);
+		valoreRigaRisultatoRepository.save(vrr20);
+		valoreRigaRisultatoRepository.save(vrr21);
+		valoreRigaRisultatoRepository.save(vrr22);
 		
 		
 	}

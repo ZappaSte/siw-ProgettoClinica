@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci nuovo campo valore della tipologia d'esame:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/rigaRisultatoForm}" method="POST">
+   			<table>
+   				<tr>
+		            <td>Codice Tipologia Esame:</td>
+		            <td>
+		            	<select name="tipologiaEsame" th:value = "${tipologiaEsame}">
+			            	<option th:each = "tipologiaEsame : ${tipologieEsami}"
+			            			th:text = "|${tipologiaEsame.nome}|"
+			            			th:value = "${tipologiaEsame.id}">ID</option>
+			            </select>
+					</td>
+		        </tr>
+				<tr>
+		            <td>Nome:</td>
+		            <td><input type="text" placeholder="nome" required
+		                       th:field="${rigaRisultato.nome}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Unit&agrave; di misura:</td>
+		            <td><input type="text" placeholder="unitaDiMisura"
+		                       th:field="${rigaRisultato.unitaDiMisura}"/></td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>

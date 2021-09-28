@@ -34,6 +34,11 @@ public class EsameService {
 		esameRepository.save(esame);
 	}
 	
+	@Transactional
+	public void update(Esame esame) {
+		esameRepository.updateEsame(esame.isInserimento(), esame.getId());
+	}
+	
 	public Object findAll() {
 		return esameRepository.findAll();
 	}

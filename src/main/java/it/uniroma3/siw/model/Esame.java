@@ -27,10 +27,11 @@ public class Esame {
 	@Column(nullable = false)
 	private LocalDateTime dataPrenotazione;
 	
+	private boolean inserimento;
+	
 	@Column(nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataEsame;
-	
 	
 	@ManyToOne
 	private Paziente paziente;
@@ -43,18 +44,20 @@ public class Esame {
 	
 	@OneToMany(mappedBy = "esame", cascade = CascadeType.ALL)
 	private List<Risultato> risultati;
+	
+	@OneToMany(mappedBy = "esame", cascade = CascadeType.ALL)
+	private List<ValoreRigaRisultato> valoriRigheRisultati;
 
 	public Esame() {
-		
+		this.inserimento = false;		
 	}
 	
-	
-	
-	public Esame(Long id, LocalDateTime dataPrenotazione, LocalDate dataEsame, Paziente paziente, Medico medico,
+	public Esame(Long id, LocalDateTime dataPrenotazione,boolean inserimento, LocalDate dataEsame, Paziente paziente, Medico medico,
 			TipologiaEsame tipologiaEsame) {
 		super();
 		this.id = id;
 		this.dataPrenotazione = dataPrenotazione;
+		this.inserimento = false;
 		this.dataEsame = dataEsame;
 		this.paziente = paziente;
 		this.medico = medico;
@@ -81,6 +84,14 @@ public class Esame {
 
 	public void setDataPrenotazione(LocalDateTime dataPrenotazione) {
 		this.dataPrenotazione = dataPrenotazione;
+	}
+	
+	public boolean isInserimento() {
+		return inserimento;
+	}
+
+	public void setInserimento(boolean inserimento) {
+		this.inserimento = inserimento;
 	}
 
 	public LocalDate getDataEsame() {
@@ -123,5 +134,14 @@ public class Esame {
 		this.risultati = risultati;
 	}
 
+	public List<ValoreRigaRisultato> getValoriRigheRisultati() {
+		return valoriRigheRisultati;
+	}
+	
+	public void setValoriRigheRisultati(List<ValoreRigaRisultato> valoriRigheRisultati) {
+		this.valoriRigheRisultati = valoriRigheRisultati;
+	}
+
+	
 	
 }

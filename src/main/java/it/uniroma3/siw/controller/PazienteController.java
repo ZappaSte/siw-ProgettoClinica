@@ -60,14 +60,12 @@ public class PazienteController {
 		return "index";
 	}
 
-	
 	public int calcolaAnno(String cF) {		
 		int anno = Integer.parseInt(cF.substring(6, 8));
 		if (anno > 30) 
 			return (1900+anno);
 		return (2000+anno);
 	}
-	
 	
 	public Month calcolaMese(String cF) {
 		switch ((String) cF.subSequence(8, 9)) {

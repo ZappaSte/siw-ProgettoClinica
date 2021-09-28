@@ -27,9 +27,6 @@ public class Credentials {
 	@Column(nullable = false)
 	private String role;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private User user;
-	
 	@OneToOne(cascade= {CascadeType.MERGE, CascadeType.REFRESH})
 	private Paziente paziente;
 
@@ -68,14 +65,6 @@ public class Credentials {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public Paziente getPaziente() {

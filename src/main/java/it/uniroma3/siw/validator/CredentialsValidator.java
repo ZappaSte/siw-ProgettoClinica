@@ -8,7 +8,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.model.Credentials;
-import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.CredentialsService;
 
 @Component
@@ -41,8 +40,10 @@ public class CredentialsValidator implements Validator{
             errors.rejectValue("password", "size");
     }
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return User.class.equals(clazz);
-    }
+	@Override
+	public boolean supports(Class<?> clazz) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

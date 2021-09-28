@@ -33,25 +33,10 @@
 				<td th:text="|*{paziente.nome} *{paziente.cognome}|"></td>
 			</tr>
 		</table>
-		<!-- 
+		
 		&nbsp;
 		<table>
-			<tr>
-				<td>Risultati:</td>
-			</tr>
-			<tr th:each="risultato : ${esame.risultati}">
-				<td th:if="${risultato.unitaDiMisura} != null">
-					<a th:text="| &bull; ${risultato.nome} ${risultato.valore} ${risultato.unitaDiMisura}|">Titolo</a>
-				</td>
-				<td th:if="${risultato.unitaDiMisura} == null">
-					<a th:text="| &bull; ${risultato.nome} ${risultato.valore}|">Titolo</a>
-				</td>
-			</tr>
-		</table> 
-		&nbsp;
-		 -->
-		&nbsp;
-		<table>
+			<h1>Nuova soluzione tramite i model RigaRisultato e ValoreRigaRiusultato</h1>
 			<tr>
 				<td>Risultati:</td>
 			</tr>
@@ -67,6 +52,22 @@
 				</td>
 			</tr>
 			
+		</table> 
+		&nbsp;
+		&nbsp;
+		<table>
+			<h1>Vecchia soluzione tramite il model Risultato</h1>
+			<tr>
+				<td>Risultati:</td>
+			</tr>
+			<tr th:each="risultato : ${esame.risultati}">
+				<td th:if="${risultato.unitaDiMisura} != null">
+					<a th:text="| &bull; ${risultato.nome} ${risultato.valore} ${risultato.unitaDiMisura}|">Titolo</a>
+				</td>
+				<td th:if="${risultato.unitaDiMisura} == null">
+					<a th:text="| &bull; ${risultato.nome} ${risultato.valore}|">Titolo</a>
+				</td>
+			</tr>
 		</table> 
 		&nbsp;
 	</div>

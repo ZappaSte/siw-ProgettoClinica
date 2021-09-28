@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles">
+<title>BIOS Laboratorio Analisi</title>
+</head>
+<body>	
+	<div th:replace="fragments/base.html :: logo"></div>
+	
+ 	<div th:replace="fragments/base.html :: navigator"></div>
+ 	
+   	<div class="Corpo">
+   		&nbsp;
+   		<h3>Inserisci i dati del requsito da creare:</h3>
+   		<input class="button" type="button" value="Indietro" onClick="javascript:history.back()" name="button">
+   		
+   		<form th:action="@{/admin/requisitoForm}" method="POST">
+   			<table>
+				<tr>
+		            <td>Nome:</td>
+		            <td><input type="text" placeholder="nome" required
+		                       th:field="${requisito.nome}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Descrizione:</td>
+		            <td><input type="text" placeholder="descrizione" required
+		                       th:field="${requisito.descrizione}"/></td>
+		        </tr>
+		        <tr>
+		            <td>Tipologia Esame:</td>
+		            <td>
+		            	<select name="tipologiaEsame" th:value = "${tipologiaEsame}">
+			            	<option th:each = "tipologiaEsame : ${tipologieEsami}"
+			            			th:text = "|${tipologiaEsame.nome}|"
+			            			th:value = "${tipologiaEsame.id}">Tampone</option>
+			            </select>
+					</td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <button type="submit">Conferma Inserimento</button>
+		            </td>
+		        </tr>
+	    	</table>
+   		</form>
+   	</div>
+	
+	<div th:replace="fragments/base.html :: footer"></div>
+</body>
+</html>
